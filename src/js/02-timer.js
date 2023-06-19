@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
-// import 'flatpickr/dist/flatpickr.min.css';
+import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 let timerId = null;
