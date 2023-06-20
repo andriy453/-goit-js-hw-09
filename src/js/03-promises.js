@@ -14,23 +14,19 @@ function onSubmitForm(event) {
     for (let i = 0; i < amount.value; i++) {
       let position = i + 1;
       const delays = Number(delay.value) + step.value * i;
-
-      createPromise(2, 1500)
+      createPromise(position, delays)
         .then(({ position, delay }) => {
-          console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
           Notiflix.Notify.success(
             `✅ Fulfilled promise ${position} in ${delay}ms`
           );
         })
         .catch(({ position, delay }) => {
-          console.log(`❌ Rejected promise ${position} in ${delay}ms`);
           Notiflix.Notify.failure(
             `❌ Rejected promise ${position} in ${delay}ms`
           );
         });
     }
   }
-
   event.currentTarget.reset();
 }
 

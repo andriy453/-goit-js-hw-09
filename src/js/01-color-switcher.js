@@ -9,14 +9,20 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+refs.Stop.setAttribute('disabled', '');
 let timerId = null;
 refs.Start.addEventListener('click', () => {
-  timerId = setInterval(() => {
+  timerId = setInterval((e) => {
+    refs.Start.setAttribute('disabled', true);
+    refs.Stop.removeAttribute('disabled');
+
     refs.body.style.backgroundColor = getRandomHexColor();
     console.log('fdaa');
   }, 1000);
 });
 
-refs.Stop.addEventListener('click', () => {
+refs.Stop.addEventListener('click', (e)=> {
+  refs.Stop.setAttribute('disabled', true);
+  refs.Start.removeAttribute('disabled');
   clearInterval(timerId);
 });
