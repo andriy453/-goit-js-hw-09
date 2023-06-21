@@ -11,13 +11,17 @@ function getRandomHexColor() {
 }
 refs.Stop.setAttribute('disabled', '');
 let timerId = null;
+
+    
 refs.Start.addEventListener('click', () => {
+   refs.Start.setAttribute('disabled', true);
+   refs.Stop.removeAttribute('disabled');
   timerId = setInterval((e) => {
-    refs.Start.setAttribute('disabled', true);
-    refs.Stop.removeAttribute('disabled');
 
     refs.body.style.backgroundColor = getRandomHexColor();
     console.log('fdaa');
+
+
   }, 1000);
 });
 
